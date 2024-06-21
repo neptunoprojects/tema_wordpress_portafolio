@@ -1,0 +1,87 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+$font: "Roboto", sans-serif;
+
+
+.container {
+    width: 96%;
+    max-width: 1280px;
+    margin: auto;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.col {
+    display: flex;
+    flex: 1 1 calc(20% - 20px);
+}
+
+
+/* PERFIL */
+
+.perfil {
+
+    h2{
+        font-family: "Rubik", sans-serif;
+        font-size: 30px;
+    }
+
+    margin-top: 110px;
+
+    .foto-perfil img {
+      
+    }
+
+}
+
+
+
+/* CURSOS */
+
+.cursos{
+
+    h2{
+        font-family: "Rubik", sans-serif;
+        font-size: 30px;
+    }
+
+    margin-top: 40px;
+}
+
+
+/* CURSOS */
+
+.portafolio{
+
+    h2{
+        font-family: "Rubik", sans-serif;
+        font-size: 30px;
+    }
+
+    margin-top: 40px;
+
+    .col{
+        flex: 1 1 calc(30% - 20px);
+    }
+}
+
+/* TIMELINE */
+
+
+
+
+@import "header.scss";
+@import "form.scss";
+@import "responsive.scss";
+@import "footer.scss";
