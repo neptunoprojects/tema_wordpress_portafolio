@@ -24,6 +24,12 @@ body {
 }
 
 /* BOTONES */
+
+.thm-btn {
+ margin-top: 2rem;
+}
+
+
 .thm-btn--gradient {
   display: flex;
   color: #fff;
@@ -43,7 +49,7 @@ body {
   background-image: -webkit-linear-gradient(to right, #99e9a5 0%, #3847ef 51%, #99e9a5 100%);
   background-image: -ms-linear-gradient(to right, #99e9a5 0%, #3847ef 51%, #99e9a5 100%);
   background-image: linear-gradient(to right, #99e9a5 0%, #3847ef 51%, #99e9a5 100%);
-  transition: all 0.2s cubic-bezier(0.68, 0.01, 0.58, 0.75) !important;
+  transition: 0.4s;
   border: 0px;
 }
 
