@@ -26,7 +26,10 @@ body {
 
 /* BOTONES */
 
-.thm-btn--gradient {
+
+
+
+.thm-btn--gradient, .btn_servicios {
   display: flex;
   color: #fff;
   font-size: 16px;
@@ -50,7 +53,7 @@ body {
 }
 
 
-.thm-btn--gradient:hover {
+.thm-btn--gradient:hover, .btn_servicios {
   background-size: 200%, 1px;
   background-image: -moz-linear-gradient(to right, #6dee81 0%, #1421af 51%, #99e9a5 100%);
   background-image: -webkit-linear-gradient(to right, #6dee81 0%, #1421af 51%, #99e9a5 100%);
