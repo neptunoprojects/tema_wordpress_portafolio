@@ -27,9 +27,28 @@ body {
 /* BOTONES */
 
 
+.btn_servicios {
+  display: flex;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 10px 50px;
+  background-size: 200%, 1px;
+  background: -moz-linear-gradient(to right, #99e9a5 0%, #3847ef 51%, #99e9a5 100%) !important;
+  background: -webkit-linear-gradient(to right, #99e9a5 0%, #3847ef 51%, #99e9a5 100%) !important;
+  background: -ms-linear-gradient(to right, #99e9a5 0%, #3847ef 51%, #99e9a5 100%) !important;
+  background: linear-gradient(to right, #99e9a5 0%, #3847ef 51%, #99e9a5 100%) !important;
+  transition: all 0.2s cubic-bezier(0.68, 0.01, 0.58, 0.75) !important;
+}
 
-
-.thm-btn--gradient, .btn_servicios {
+.thm-btn--gradient {
   display: flex;
   color: #fff;
   font-size: 16px;
