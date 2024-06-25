@@ -26,7 +26,22 @@
                         <div class="row row-movil">
 
                             <div class="col header-logo">
-                                <a href="<?php bloginfo("url"); ?>"><span>JAY</span></a>
+                                <?php
+
+                                if (have_rows("contenido_", "option")) :
+                                    while (have_rows("contenido_", "option")) : the_row();
+                                        if (get_sub_field("logo", "option")) :
+                                            echo "<a href=' " . bloginfo("url") . " '> <img src=' " . get_sub_field("logo", "option") . " '/></a>";
+                                        else :
+                                            echo "<a href=' '> <span>" . get_sub_field("nombre_de_la_web", "option") . "</span></a>";
+                                        endif;
+                                    endwhile;
+                                endif;
+
+                                ?>
+
+
+
                             </div>
 
                             <div class="col movil">
@@ -70,13 +85,13 @@
                         <p>Soy un desarrollador web con más 12 años de experiencia, me especializo en tecnologías frontend y backend tales como: Php (Wordpress, Laravel, Codeigniter), Javascript (React, Node, Jquery) Css (Flexbox, Bootstrap, Sass) </p>
 
 
-                         <p style="font-weight: 600; margin-top: 0; padding-top:0px;">
-							¿Necesitas una cotización? 
-						 </p> 
-						
-                         <?php echo do_shortcode('[servicios]'); ?>
-                            
-   
+                        <p style="font-weight: 600; margin-top: 0; padding-top:0px;">
+                            ¿Necesitas una cotización?
+                        </p>
+
+                        <?php echo do_shortcode('[servicios]'); ?>
+
+
 
                     </div>
                 </div>
