@@ -3,7 +3,7 @@
 
 <head>
 
-    <title> Portafolio </title>
+    <title> <?php the_title();?> </title>
     <link href="<?php echo get_template_directory_uri(); ?>/css/estilo.css" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -81,8 +81,8 @@
                 <div class="col">
                     <div class="hero-contenido">
 
-                        <?php if (have_rows("perfil", "option")) :
-                            while (have_rows("perfil", "option")) : the_rows();
+                        <?php if (have_rows("contenido_", "option")) :
+                            while (have_rows("contenido_", "option")) : the_row();
                                 echo  "<h1>" . get_sub_field("titulo", "option") . "</h1>";
                                 echo   get_sub_field("descripcion", "option");
                             endwhile;
@@ -95,7 +95,9 @@
                             endwhile;
                         endif;
                         ?>
- 
+
+                        <?php echo do_shortcode('[servicios]'); ?>
+
 
 
 
@@ -105,7 +107,7 @@
                 <div class="col">
 
                     <div class="hero-img-2">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/imag.png" alt="">
+                        <img src="<?php echo get_field("imagen") ?>" alt="">
                     </div>
                     <div class="hero-img">
 

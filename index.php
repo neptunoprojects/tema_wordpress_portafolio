@@ -15,20 +15,32 @@
 
                 <div class="perfil-contenido">
 
-                    <h2 class="w700 size2">Perfil profesional</h2>
-                    <p>Mi nombre es Jaicer indriago, tengo 37 años, más de 12 años de experiencia laboral, me desempeño como desarrollador frontend, con fundamentos solidos de backend en node y php.</p>
-                    <p>Skills: Css, Bootstrap, Sass, Javascript (Jquery, Reactjs), Php (Laravel, Codeigniter), Node, Mongo, Sql, Wordpress, Shopify, Cpanel, WHM, SSH, Git, Aws (basico intermedio)</p>
-                    <h2 class="w700 size2">Formación académica y estudios</h2>
-                    <p>Soy LIC. en diseño gráfico, con estudios avanzados en Ing. en sistema, a lo largo de los años me he trasladado más al desarrollo de software.</p>
-        
-					<a href="" class="thm-btn thm-btn--gradient">DESCARGA MI CV</a>
- 
+
+                    <?php if (have_rows("perfil", "option")) :
+                        while (have_rows("perfil", "option")) : the_row();
+                            echo "<h2 class='w700 size2'>" . get_sub_field("titulo", "option") . "</h2>";
+                            echo get_sub_field("descripcion", "option");
+
+
+                            if (have_rows("boton", "option")) :
+
+                                while (have_rows("boton", "option")) : the_row();
+                                    echo "<a href=' " . get_sub_field("url", "option") . " ' class='thm-btn thm-btn--gradient'>" . get_sub_field("texto", "option") . "</a>";
+
+
+                                endwhile;
+                            endif;
+                        endwhile;
+                    endif;
+                    ?>
+
+
                 </div>
 
             </div>
 
         </div>
-
+    </div>
 
 </section>
 
@@ -45,20 +57,35 @@
             <h2>Últimos Cursos</h2>
         </div>
         <div class="row">
-            <div class="col">
-                <div class="img-curso">
-                    <img loading="lazy" width="100%" src="<?php echo get_template_directory_uri(); ?>/images/cursojs.jpg" />
-                </div>
-            </div>
 
-            <div class="col">
-                <div class="img-curso">
-                    <img loading="lazy" width="100%" src="<?php echo get_template_directory_uri(); ?>/images/cursopython.jpg" />
-                </div>
-            </div>
+
+            <?php
+
+            if (have_rows("galeria", "option")) :
+                while (have_rows("galeria", "option")) : the_row();
+
+                    if (get_field("columnas", "option") == 4) : $col = "20%";
+                    elseif (get_field("columnas", "option") == 3) : $col = "33%";
+                    elseif (get_field("columnas", "option") == 2) : $col = "50%";
+                    endif;
+            ?>
+                    <div class="col" style="flex: 1 1 calc(<?php echo $col; ?> - 20px);">
+                        <div class="img-curso">
+                            <a href="<?php echo get_sub_field("url", "option"); ?>">
+                                <img loading="lazy" width="100%" src="<?php echo get_sub_field("imagen", "option"); ?>" />
+                            </a>
+                        </div>
+                    </div>
+
+            <?php
+                    echo $html;
+                endwhile;
+            endif;
+            ?>
+
 
         </div>
-
+    </div>
 </section>
 
 
@@ -75,59 +102,38 @@
         </div>
         <div class="row">
 
-            <div class="col">
-                <div class="img-curso">
-                    <a href="https://marcachile.cl/toolkit">
-                        <img loading="lazy" width="100%" src="<?php echo get_template_directory_uri(); ?>/images/proyecto1.png" />
-                    </a>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="img-curso">
-                    <a href="https://ex-ante.cl">
-                        <img loading="lazy" width="100%" src="<?php echo get_template_directory_uri(); ?>/images/proyecto2.png" />
-                    </a>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="img-curso">
-                    <a href="https://potenciapyme.cl">
-                        <img loading="lazy" width="100%" src="<?php echo get_template_directory_uri(); ?>/images/proyecto3.png" />
-                    </a>
-                </div>
-            </div>
 
 
-            <div class="col">
-                <div class="img-curso">
-                    <a href="https://marcachile.cl">
-                        <img loading="lazy" width="100%" src="<?php echo get_template_directory_uri(); ?>/images/proyecto4.png" />
-                    </a>
-                </div>
-            </div>
 
-            <div class="col">
-                <div class="img-curso">
-                    <a href="https://ediplas.com/landing/">
-                        <img loading="lazy" width="100%" src="<?php echo get_template_directory_uri(); ?>/images/proyecto5.png" />
-                    </a>
-                </div>
-            </div>
+            <?php
 
-            <div class="col">
-                <div class="img-curso">
-                    <a href="https://talentopordelante.walmartchile.cl/">
-                        <img loading="lazy" width="100%" src="<?php echo get_template_directory_uri(); ?>/images/proyecto6.png" />
-                    </a>
-                </div>
-            </div>
+            if (have_rows("portafolio", "option")) :
+                while (have_rows("portafolio", "option")) : the_row();
+
+                    if (get_field("columnas2", "option") == 4) : $col = "20%";
+                    elseif (get_field("columnas2", "option") == 3) : $col = "33%";
+                    elseif (get_field("columnas2", "option") == 2) : $col = "50%";
+                    endif;
+
+            ?>
+                    <div class="col" style="flex: 1 1 calc(<?php echo $col; ?> - 20px);">
+                        <div class="img-curso">
+                            <a href="<?php echo get_sub_field("url", "option"); ?>">
+                                <img loading="lazy" width="100%" src="<?php echo get_sub_field("imagen", "option"); ?>" />
+                            </a>
+                        </div>
+                    </div>
+
+            <?php
+                endwhile;
+            endif;
+            ?>
+
 
         </div>
-
+    </div>
 </section>
 
 
- 
+
 <?php get_footer(); ?>
