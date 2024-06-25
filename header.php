@@ -80,16 +80,22 @@
             <div class="row">
                 <div class="col">
                     <div class="hero-contenido">
-                        <h1>Hola, mi nombre es Jaicer Indriago. </h1>
 
-                        <p>Soy un desarrollador web con más 12 años de experiencia, me especializo en tecnologías frontend y backend tales como: Php (Wordpress, Laravel, Codeigniter), Javascript (React, Node, Jquery) Css (Flexbox, Bootstrap, Sass) </p>
+                        <?php if (have_rows("perfil", "option")) :
+                            while (have_rows("perfil", "option")) : the_rows();
+                                echo  "<h1>" . get_sub_field("titulo", "option") . "</h1>";
+                                echo   get_sub_field("descripcion", "option");
+                            endwhile;
+                        endif;
 
+                        if (have_rows("boton", "option")) :
+                            while (have_rows("boton", "option")) : the_rows();
 
-                        <p style="font-weight: 600; margin-top: 0; padding-top:0px;">
-                            ¿Necesitas una cotización?
-                        </p>
-
-                        <?php echo do_shortcode('[servicios]'); ?>
+                                echo "<a href=' " . get_sub_field("url", "option") . " '> " . get_sub_field("texto", "option") . "</a>";
+                            endwhile;
+                        endif;
+                        ?>
+ 
 
 
 
