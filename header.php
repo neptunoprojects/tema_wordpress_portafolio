@@ -3,7 +3,7 @@
 
 <head>
 
-    <title> <?php the_title();?> </title>
+    <title> <?php the_title(); ?> </title>
     <link href="<?php echo get_template_directory_uri(); ?>/css/estilo.css" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,13 +58,16 @@
                     <div class="col">
                         <div class="menu">
                             <nav class="main-menu collapse navbar-collapse" id="menu">
-                                <ul>
+ 
 
-                                    <li><a class="scrollspy-btn" href="<?php bloginfo("url"); ?>/#perfil">Más sobre mi</a></li>
-                                    <li><a class="scrollspy-btn" href="<?php bloginfo("url"); ?>/#cursos">Últimas capacitaciones</a></li>
-                                    <li><a class="scrollspy-btn" href="<?php bloginfo("url"); ?>/#portafolio">Últimos proyectos</a></li>
+                                <?php
+                                wp_nav_menu(
+                                    array(
+                                        'theme_location' => 'menu'
+                                    )
+                                );
+                                ?>
 
-                                </ul>
                             </nav>
                         </div>
                     </div>
@@ -107,7 +110,7 @@
                 <div class="col">
 
                     <div class="hero-img-2">
-                        <img src="<?php echo get_field("imagen") ?>" alt="">
+                        <img src="<?php echo get_field("imagen", "option") ?>" alt="">
                     </div>
                     <div class="hero-img">
 
